@@ -74,41 +74,6 @@ Grafana
   - Amazon Managed Service for Prometheus permissions
 - An existing Amazon Managed Service for Prometheus workspace
 
-## Using This in a Separate GitHub Repository
-
-This example currently lives inside the `terraform-aws-ecs` repository and uses
-the local root module:
-
-```hcl
-module "ecs_cluster" {
-  source = "../../"
-}
-```
-
-If you copy only this `examples/fargate` directory into a new standalone
-repository, update the ECS module source to the registry module:
-
-```hcl
-module "ecs_cluster" {
-  source  = "terraform-aws-modules/ecs/aws"
-  version = "~> 7.0"
-}
-```
-
-The ALB and VPC modules already use registry sources.
-
-Do not commit local runtime files to GitHub:
-
-```text
-.terraform/
-terraform.tfstate
-terraform.tfstate.backup
-terraform.tfvars
-```
-
-Use a sanitized `terraform.tfvars.example` instead of committing real workspace
-IDs or account-specific values.
-
 ## Configuration
 
 ### 1. Set the AMP Workspace ID

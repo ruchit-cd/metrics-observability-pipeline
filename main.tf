@@ -19,7 +19,7 @@ locals {
   vpc_cidr = "10.0.0.0/16"
   azs      = slice(data.aws_availability_zones.available.names, 0, 3)
 
-  amp_remote_write_endpoint = "https://aps-workspaces.eu-west-1.amazonaws.com/workspaces/ws-5cd5ae51-c3c4-4a4f-bd5e-ea770895e4b3/api/v1/remote_write"
+  amp_remote_write_endpoint = "https://aps-workspaces.eu-west-1.amazonaws.com/workspaces/ws-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/api/v1/remote_write"
 
   adot_config_content = templatefile("${path.module}/adot-config.yaml.tftpl", {
     region                = local.region
